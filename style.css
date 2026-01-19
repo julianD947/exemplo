@@ -1,0 +1,570 @@
+/* CONFIGURAÇÕES GERAIS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #000;
+    color: #fff;
+    height: 100vh;
+}
+
+.interface {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 4%;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+button {
+    padding: 10px 40px;
+    font-size: 18px;
+    font-weight: 600;
+    background-color: #ff3c00; /* Cor laranja de destaque */
+    border: 0;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: .2s;
+    color: #fff;
+}
+
+button:hover {
+    box-shadow: 0px 0px 15px #ff3c00;
+    transform: scale(1.05);
+}
+
+span {
+    color: #ff3c00;
+}
+
+/* Configuração do Cabeçalho Moderno com Efeito Glassmorphism */
+.header-moderno {
+    width: 100%;
+    padding: 15px 0; /* Diminuí um pouco para ficar mais elegante */
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    
+    /* Degradê Azul Profundo com Transparência */
+    background: linear-gradient(135deg, rgba(0, 26, 51, 0.9) 0%, rgba(0, 51, 102, 0.9) 50%, rgba(0, 64, 128, 0.9) 100%);
+    
+    /* Efeito de desfoque atrás do menu (estilo iOS/Windows) */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    
+    /* Animação de entrada ao carregar a página */
+    animation: slideDown 0.8s ease-out;
+}
+
+/* Efeito de destaque ultra-moderno no Hover */
+.header-moderno:hover {
+    padding: 20px 0; /* Ele expande levemente ao interagir */
+    background: linear-gradient(135deg, rgba(0, 38, 77, 0.95) 0%, rgba(0, 89, 179, 0.95) 100%);
+    box-shadow: 0 0 40px rgba(0, 123, 255, 0.3);
+    border-bottom: 1px solid rgba(0, 212, 255, 0.6);
+}
+
+/* Estilo dos Links do Menu */
+.menu-desktop ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    gap: 10px; /* Espaçamento uniforme entre os itens */
+}
+
+.menu-desktop ul li a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+    padding: 10px 20px;
+    position: relative;
+    transition: 0.3s;
+    text-transform: capitalize;
+}
+
+/* Brilho e cor no hover do link */
+.menu-desktop ul li a:hover {
+    color: #00d4ff;
+    text-shadow: 0 0 15px rgba(0, 212, 255, 0.6);
+}
+
+/* Linha animada com degradê embaixo do link */
+.menu-desktop ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    width: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #00d4ff, transparent);
+    transition: 0.4s;
+    transform: translateX(-50%);
+    border-radius: 5px;
+}
+
+.menu-desktop ul li a:hover::after {
+    width: 70%;
+}
+
+/* Botão de Contato com efeito Pulsante */
+.btn-glow {
+    background: linear-gradient(45deg, #007bff, #00d4ff);
+    color: white;
+    border: none;
+    padding: 12px 35px;
+    border-radius: 50px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: 0.4s;
+    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-glow:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(0, 212, 255, 0.5);
+    letter-spacing: 2px;
+}
+
+/* Keyframes para animação de entrada */
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+/* AJUSTES NA SEÇÃO TOPO */
+section.topo-do-site {
+    position: relative;
+    overflow: hidden;
+    padding: 120px 4% 80px 4%;
+}
+
+
+/* Efeito de brilho "varrendo" o texto */
+.txt-topo-site h1 {
+    font-size: 52px;
+    font-weight: 900;
+    color: #fff;
+    background: linear-gradient(90deg, #fff, #00d4ff, #fff);
+    background-size: 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shineText 5s linear infinite;
+    min-height: 120px; /* Evita que o layout pule enquanto digita */
+}
+
+@keyframes shineText {
+    0% { background-position: -200%; }
+    100% { background-position: 200%; }
+}
+
+/* Efeito de Cursor Piscando (estilo código) */
+.txt-topo-site h1::after {
+    content: '|';
+    margin-left: 5px;
+    opacity: 1;
+    color: #00d4ff;
+    animation: blink .8s infinite;
+}
+
+@keyframes blink {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+/* Animação Flutuante para a Imagem */
+.img-topo-site img {
+    width: 100%;
+    max-width: 450px; /* Aumentei um pouco para maior impacto */
+    height: auto;
+    border-radius: 50px;
+    box-shadow: 0 0 50px rgba(0, 212, 255, 0.3);
+    animation: float 4s ease-in-out infinite;
+    border: 2px solid rgba(0, 212, 255, 0.2);
+}
+
+@keyframes float {
+    0% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(2deg); }
+    100% { transform: translateY(0px) rotate(0deg); }
+}
+
+/* Estilização do Parágrafo (Subtítulo) */
+.txt-topo-site p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 20px;
+    margin-bottom: 35px;
+    max-width: 500px;
+}
+/* ESPECIALIDADES (BOXES) */
+section.especialidades {
+    padding: 80px 4%;
+}
+
+h2.titulo, .titulo {
+    color: #fff;
+    font-size: 38px;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+
+/* Container das especialidades */
+section.especialidades .flex {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    perspective: 1000px; /* Necessário para efeito 3D suave */
+}
+
+/* SOBRE */
+section.sobre {
+    padding: 80px 4%;
+}
+
+section.sobre .flex {
+    gap: 60px;
+}
+
+.sobre .img-sobre img {
+    border-radius: 30px;
+}
+
+.sobre .txt-sobre h2 {
+    font-size: 40px;
+    line-height: 50px;
+    margin-bottom: 30px;
+}
+
+.sobre .btn-social button {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    padding: 0;
+    margin-right: 15px;
+}
+
+/* FORMULÁRIO */
+section.formulario {
+    padding: 80px 4%;
+}
+
+form {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+form input, form textarea {
+    width: 100%;
+    background-color: #242424;
+    border: 0;
+    outline: 0;
+    padding: 20px;
+    border-radius: 15px;
+    color: #fff;
+    font-size: 18px;
+}
+
+form textarea {
+    height: 150px;
+    resize: none;
+}
+
+.btn-enviar {
+    text-align: center;
+}
+
+.btn-enviar input[type=submit] {
+    width: 150px;
+    background-color: #ff3c00;
+    cursor: pointer;
+    font-weight: 700;
+    transition: .2s;
+}
+
+/* FOOTER */
+footer {
+    padding: 60px 4%;
+    border-top: 2px solid #ff3c00;
+    text-align: center;
+}
+
+footer .line-footer p i {
+    font-size: 30px;
+    color: #ff3c00;
+}
+/* Container da Lâmpada */
+.lampada-container {
+    position: absolute;
+    top: -20px;
+    right: 50px;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* O Ícone da Lâmpada */
+#lampada-ideia {
+    font-size: 80px;
+    color: rgba(255, 255, 255, 0.2); /* Começa apagada */
+    text-shadow: 0 0 0px rgba(0, 212, 255, 0);
+    transition: all 0.5s ease;
+    cursor: pointer;
+}
+
+/* O Brilho (Aura) atrás da lâmpada */
+.luz-aura {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle, rgba(0, 212, 255, 0.8) 0%, transparent 70%);
+    border-radius: 50%;
+    opacity: 0;
+    transform: scale(0);
+    transition: all 0.5s ease;
+}
+
+/* Classe que o JS vai adicionar para "Acender" */
+.lampada-acesa #lampada-ideia {
+    color: #fff;
+    text-shadow: 0 0 30px #00d4ff, 0 0 60px #00d4ff;
+    animation: piscar-suave 2s infinite alternate; /* Fica piscando/pulsando */
+}
+
+.lampada-acesa .luz-aura {
+    opacity: 1;
+    transform: scale(2.5);
+    animation: pulsar-aura 2s infinite alternate;
+}
+
+
+/* Animação da luz piscando suavemente */
+@keyframes piscar-suave {
+    0% { opacity: 1; text-shadow: 0 0 20px #00d4ff; }
+    30% { opacity: 0.8; text-shadow: 0 0 10px #00d4ff; }
+    35% { opacity: 1; text-shadow: 0 0 40px #00d4ff; }
+    100% { opacity: 0.9; text-shadow: 0 0 25px #00d4ff; }
+}
+
+/* Animação da aura expandindo */
+@keyframes pulsar-aura {
+    from { transform: scale(2); opacity: 0.4; }
+    to { transform: scale(2.8); opacity: 0.7; }
+}
+
+/* Ajuste na imagem principal para não bater na lâmpada */
+.img-principal {
+    border-radius: 50px;
+    box-shadow: 0 0 50px rgba(0, 212, 255, 0.2);
+    margin-top: 40px;
+}
+
+
+.lampada-container {
+    position: relative; /* Mudamos para relative ou ajustamos o absolute */
+    margin-left: 50px;
+    z-index: 10;
+}
+
+/* Garante que o ícone seja visível mesmo apagado */
+#lampada-ideia {
+    font-size: 80px;
+    color: rgba(255, 255, 255, 0.1); /* Cor cinza bem escuro quando apagada */
+    transition: all 0.3s ease;
+}
+
+/* Quando a classe lampada-acesa for adicionada pelo JS */
+.lampada-acesa #lampada-ideia {
+    color: #00d4ff !important; /* Cor azul brilhante */
+    text-shadow: 0 0 20px #00d4ff, 0 0 40px #00d4ff;
+    transform: scale(1.1);
+}
+/* Container para evitar que o layout se mova durante a escrita */
+.especialidades-container {
+    min-height: 80px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.titulo-moderno {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Efeito de Cursor Moderno */
+#typewriter::after {
+    content: '|';
+    margin-left: 5px;
+    color: #ff3c00; /* Cor de destaque da sua marca */
+    animation: blinkCursor 0.8s infinite;
+}
+
+@keyframes blinkCursor {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* Estilo para quando o texto estiver em modo 'apagando' ou 'escrevendo' */
+.writing {
+    color: #00d4ff; /* Muda levemente a cor enquanto digita para dar feedback visual */
+    text-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
+}
+/* Container das especialidades */
+section.especialidades .flex {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    perspective: 1000px; /* Necessário para efeito 3D suave */
+}
+:root {
+    --primary: #ff3c00;
+    --secondary: #00d4ff;
+    --bg-dark: #000000;
+    --glass: rgba(255, 255, 255, 0.1);
+}
+
+* {
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: #fff;
+    overflow-x: hidden;
+}
+
+/* CONTAINER RESPONSIVO */
+.interface {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 5%;
+}
+
+/* HEADER GLASSMORPHISM */
+.header-moderno {
+    position: fixed;
+    width: 100%;
+    z-index: 999;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--glass);
+    padding: 10px 0;
+}
+
+/* FLEXBOX PARA MOBILE */
+.flex-container {
+    display: flex;
+    flex-wrap: wrap; /* Permite quebrar linha no mobile */
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.flex-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+/* TOPO DO SITE */
+.topo-do-site {
+    padding: 150px 0 100px;
+}
+
+.txt-topo-site h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem); /* Fonte fluida */
+    font-weight: 900;
+    line-height: 1.1;
+    background: linear-gradient(90deg, #fff, var(--secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* BOX DE ESPECIALIDADES */
+.especialidades{
+    background: #111;
+    padding: 40px;
+    border-radius: 20px;
+    transition: 0.5s;
+    border: 1px solid var(--glass);
+    text-align: center;
+}
+
+.especialidades:hover {
+    transform: translateY(-10px);
+    border-color: var(--secondary);
+    box-shadow: 0 10px 30px rgba(0, 212, 255, 0.2);
+}
+.main-icon {
+    font-size: 50px;
+    color: var(--secondary); /* Aquele azul brilhante */
+    margin-bottom: 20px;
+    display: inline-block;
+    transition: 0.3s;
+}
+
+/* BOTÃO PULSANTE */
+.btn-glow {
+    background: var(--primary);
+    border: none;
+    padding: 12px 30px;
+    border-radius: 50px;
+    color: #fff;
+    font-weight: 600;
+    transition: 0.3s;
+    box-shadow: 0 0 15px rgba(255, 60, 0, 0.4);
+}
+
+/* MEDIA QUERIES PARA MOBILE EXTREMO */
+@media (max-width: 768px) {
+    .txt-topo-site { text-align: center; }
+    .lampada-container { 
+        position: relative; 
+        margin: 40px auto; 
+        right: 0;
+    }
+}
+.especialidades h3 {
+    font-size: 24px;
+    margin: 15px 0;
+    color: #fff;
+}
+.especialidades p {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.6;
+}
+
